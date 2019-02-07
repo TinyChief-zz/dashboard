@@ -1,0 +1,74 @@
+body {
+  font-family: sans-serif;
+  background-color: #f6f6f6;
+}
+
+body * {
+  box-sizing: border-box;
+  /* height: inherit; */
+  /* width: inherit; */
+}
+
+.grid {
+  display: grid;
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  /* grid-gap: 5px 5px; */
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas: 
+    "messages messages news map map"
+    "messages messages news map map"
+    "messages messages notes notes chat"
+    "chart chart chart chart chat"
+}
+
+.grid > div {
+  /* border: 1px solid salmon; */
+  padding: 7px 7px 7px 7px;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.15s ease-in;
+  border-radius: 8px;
+  background-color: #f6f6f6;
+}
+.grid > div.active {
+  background-color: #4571e5;
+}
+.grid > div.active > h1 {
+  color: white;
+}
+
+.grid > div > h1 {
+  margin-bottom: 5px;
+  transition: background-color 0.2s ease-in;
+}
+
+[class$="-inner"] {
+  max-width: 100%;
+  /* min-height: inherit; */
+  flex: 1 1 100%;
+  background-color: white;
+  border-radius: 5px
+}
+
+#chart {
+  grid-area: chart
+}
+#chat {
+  grid-area: chat
+}
+#notes {
+  grid-area: notes
+}
+#messages {
+  grid-area: messages
+}
+#news {
+  grid-area: news
+}
+#map {
+  grid-area: map
+}

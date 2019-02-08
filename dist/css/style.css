@@ -1,12 +1,32 @@
+:root {
+  --blue: #4571e5;
+  --dark: rgb(60, 60, 60);
+  --light: rgb(128, 128, 128)
+}
 body {
   font-family: sans-serif;
   background-color: #f6f6f6;
 }
 
+h1, h2, h3, h4, h5, p, li, span {
+  color: var(--dark)
+}
+
+span {
+  font-weight: normal;
+}
+
 body * {
   box-sizing: border-box;
-  /* height: inherit; */
-  /* width: inherit; */
+}
+
+button {
+  background-color: var(--blue);
+  padding: 5px 15px;
+  color: white;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
 }
 
 .grid {
@@ -16,10 +36,11 @@ body * {
   margin: 0 auto;
   /* grid-gap: 5px 5px; */
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   grid-template-areas: 
     "messages messages news map map"
     "messages messages news map map"
+    "messages messages notes notes chat"
     "messages messages notes notes chat"
     "chart chart chart chart chat"
 }
@@ -71,4 +92,49 @@ body * {
 }
 #map {
   grid-area: map
+}
+
+#notes li {
+  margin-bottom: 3px;
+  padding: 5px;
+  background-color: bisque;
+  border-radius: 3px;
+}
+
+#notes li.done {
+  background-color: lightgreen;
+}
+
+#notes li h3 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+#notes li span, #notes li p {
+  font-size: 14px;
+  color: var(--light)
+}
+
+.notes-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+.notes-inner ul {
+  flex-grow: 1;
+  overflow: scroll;
+  height: 1px;
+  margin-bottom: 5px;
+}
+
+#notes .input-wrapper {
+  /* padding: 5px; */
+  display: flex;
+}
+
+#notes .input-wrapper input {
+  font-size: 14px;
+  line-height: 16px;
+  margin-right: 5px;
+  flex-grow: 1;
 }

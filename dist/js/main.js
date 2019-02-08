@@ -10,13 +10,6 @@ const blocks = ['chart', 'map', 'messages', 'notes', 'news', 'chat']
 
 let lastActive = null
 
-// const chartBox = new Block({ target: 'chart', name: 'Chart' })
-// const mapBox = new Block({ target: 'map', name: 'Map' })
-// const messagesBox = new Block({ target: 'messages', name: 'Messages' })
-// const notesBox = new Block({ target: 'notes', name: 'Notes' })
-// const newsBox = new Block({ target: 'news', name: 'News' })
-// const chatBox = new Block({ target: 'chat', name: 'Chat' })
-
 const boxes = [
   chartBox({ target: 'chart', name: 'Chart' }),
   mapBox({ target: 'map', name: 'Map' }),

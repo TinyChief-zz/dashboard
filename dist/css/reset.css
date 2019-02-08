@@ -83,3 +83,12 @@ hr {
 input, select {
     vertical-align:middle;
 }
+
+/* MY ADDITIONS */
+button {
+    background-color: transparent;
+}
+
+li {
+    list-style: none;
+}

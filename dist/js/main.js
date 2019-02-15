@@ -21,7 +21,6 @@ const boxes = [
 
 boxes.forEach(box => {
   box.container.addEventListener('click', function (e) {
-    console.log(lastActive)
     if (lastActive) {
       lastActive.classList.remove('active')
     }

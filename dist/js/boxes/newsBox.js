@@ -4,6 +4,7 @@ const agencyIcons = {
   'Lenta': 'lenta',
   'Www.mk.ru': 'mk',
   'Ria.ru': 'ria',
+  'Rsport.ria.ru': 'ria',
   'RBC': 'rbk',
   'Vesti.ru': 'vesti',
   'Itar': 'itar',

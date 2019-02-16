@@ -28,6 +28,16 @@ config.plugin('copy')
     { from: 'src/assets', to: './assets' }
   ]))
 
+config.plugin('clean')
+  .use(require('clean-webpack-plugin'))
+  .init((Plugin, args) => new Plugin(['dist']))
+
+config.plugin('html')
+  .use(require('html-webpack-plugin'), [{
+    minify: false,
+    template: 'src/index.html'
+  }])
+
 if (!isProd) {
   config.devServer
     .contentBase('./dist')
@@ -37,12 +47,6 @@ if (!isProd) {
   config
     .plugin('no-emit-on-errors')
     .use(require('webpack/lib/NoEmitOnErrorsPlugin'))
-
-  config.plugin('html')
-    .use(require('html-webpack-plugin'), [{
-      minify: false,
-      template: 'src/index.html'
-    }])
 }
 
 if (isProd) {

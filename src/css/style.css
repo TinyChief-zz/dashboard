@@ -1,15 +1,34 @@
+@import 'reset.css';
+
 :root {
   --blue: #4571e5;
   --dark: rgb(60, 60, 60);
-  --light: rgb(128, 128, 128)
+  --light: rgb(128, 128, 128);
 }
 body {
   font-family: sans-serif;
   background-color: #f6f6f6;
 }
 
-h1, h2, h3, h4, h5, p, li, span {
-  color: var(--dark)
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+li,
+span {
+  color: var(--dark);
+}
+
+p {
+  line-height: 20px;
+  font-size: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 span {
@@ -35,14 +54,14 @@ button {
   height: 100%;
   margin: 0 auto;
   /* grid-gap: 5px 5px; */
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  grid-template-areas: 
-    "messages messages news map map"
-    "messages messages news map map"
-    "messages messages notes notes chat"
-    "messages messages notes notes chat"
-    "chart chart chart chart chat"
+  grid-template-areas:
+    'messages messages news news map map'
+    'messages messages news news map map'
+    'messages messages notes notes chat chat'
+    'messages messages notes notes chat chat'
+    'chart chart chart chart chat chat';
 }
 
 .grid > div {
@@ -67,42 +86,47 @@ button {
   transition: background-color 0.2s ease-in;
 }
 
-[class$="-inner"] {
+[class$='-inner'] {
   max-width: 100%;
-  /* min-height: inherit; */
+  padding: 8px;
   flex: 1 1 100%;
   background-color: white;
-  border-radius: 5px
+  border-radius: 5px;
 }
 
 #chart {
-  grid-area: chart
+  grid-area: chart;
 }
 #chat {
-  grid-area: chat
+  grid-area: chat;
 }
 #notes {
-  grid-area: notes
+  grid-area: notes;
 }
 #messages {
-  grid-area: messages
+  grid-area: messages;
 }
 #news {
-  grid-area: news
+  grid-area: news;
 }
 #map {
-  grid-area: map
+  grid-area: map;
 }
+
+/* NOTES */
 
 #notes li {
   margin-bottom: 3px;
   padding: 5px;
-  background-color: bisque;
   border-radius: 3px;
 }
 
 #notes li.done {
-  background-color: lightgreen;
+  background-color: var(--blue);
+}
+
+#notes li.done h3, #notes li.done p, #notes li.done span {
+  color: white;
 }
 
 #notes li h3 {
@@ -110,15 +134,18 @@ button {
   margin-bottom: 4px;
 }
 
-#notes li span, #notes li p {
+#notes li span,
+#notes li p {
   font-size: 14px;
-  color: var(--light)
+  font-style: italic;
+  opacity: 0.8;
+  color: var(--light);
 }
 
 .notes-inner {
   display: flex;
   flex-direction: column;
-  padding: 8px;
+  /* padding: 8px; */
 }
 .notes-inner ul {
   flex-grow: 1;
@@ -128,7 +155,6 @@ button {
 }
 
 #notes .input-wrapper {
-  /* padding: 5px; */
   display: flex;
 }
 
@@ -137,4 +163,47 @@ button {
   line-height: 16px;
   margin-right: 5px;
   flex-grow: 1;
+}
+
+/* NEWS */
+
+#news .news-inner {
+  display: flex;
+}
+
+#news li {
+  margin-bottom: 3px;
+  padding: 7px 5px;
+  border-radius: 3px;
+  position: relative;
+}
+
+#news li:last-of-type::after {
+  display: none;
+}
+
+#news ul {
+  overflow: scroll;
+}
+
+#news li p {
+  display: inline;
+}
+
+
+#news .agency {
+  width: 15px;
+  height: 15px;
+  font: 0/0 a;
+  border: 0;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  vertical-align: text-top;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  background: '✦'
 }

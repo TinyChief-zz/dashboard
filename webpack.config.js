@@ -59,10 +59,9 @@ baseRuleCSS
   .use('css-loader')
   .loader('css-loader')
   .options({
-    modules: true,
-    localIdentName: `[local]_[hash:base64:8]`,
-    importLoaders: 1,
-    sourceMap: !isProd
+    // modules: true,
+    // importLoaders: 1,
+    // sourceMap: !isProd
   })
 
 if (!isProd) {

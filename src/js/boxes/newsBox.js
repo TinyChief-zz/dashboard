@@ -13,7 +13,7 @@ const agencyIcons = {
   'Regnum': 'regnum',
   'Gazeta.ru': 'gazetaru',
   'Interfaks.ru': 'interfaks',
-  'Rg': 'rgru2',
+  'Rg.ru': 'rgru2',
   'Championat.com': 'championat',
   'Kommersant.ru': 'kommersant'
 }

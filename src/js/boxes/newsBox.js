@@ -13,7 +13,9 @@ const agencyIcons = {
   'Regnum': 'regnum',
   'Gazeta.ru': 'gazetaru',
   'Interfaks.ru': 'interfaks',
-  'Rg': 'rgru2'
+  'Rg': 'rgru2',
+  'Championat.com': 'championat',
+  'Kommersant.ru': 'kommersant'
 }
 
 export default function (params) {
@@ -23,10 +25,9 @@ export default function (params) {
   getNews().then(data => {
     const newsList = document.createElement('ul')
     data.articles.forEach(item => {
-      console.log(item)
       const listItem = document.createElement('li')
       const iconURL = `https://yastatic.net/s3/home/news/desktop/multicolor/${agencyIcons[item.source.name]}.svg`
-
+      console.log(item.source)
       listItem.innerHTML = `
         <a href=${item.url} target="_blank">
           <div class="agency" style="background-image: url(${iconURL})"></div>

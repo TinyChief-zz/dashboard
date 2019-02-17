@@ -14,7 +14,7 @@ export class Block {
     }
     container.innerHTML += `
       <h1>${name}</h1>
-      <div class="${target}-inner"></div>
+      <div id="${target}-inner"></div>
     `
     return container
   }

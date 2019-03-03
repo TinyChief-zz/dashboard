@@ -14,6 +14,7 @@ const agencyIcons = {
   'Gazeta.ru': 'gazetaru',
   'Interfaks.ru': 'interfaks',
   'Rg.ru': 'rgru2',
+  'Www.aif.ru': 'aif',
   'Championat.com': 'championat',
   'Kommersant.ru': 'kommersant'
 }

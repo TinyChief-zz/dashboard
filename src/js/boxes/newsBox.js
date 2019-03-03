@@ -16,7 +16,8 @@ const agencyIcons = {
   'Rg.ru': 'rgru2',
   'Www.aif.ru': 'aif',
   'Championat.com': 'championat',
-  'Kommersant.ru': 'kommersant'
+  'Kommersant.ru': 'kommersant',
+  'Sport-express.ru': 'sportexpress'
 }
 
 export default function (params) {

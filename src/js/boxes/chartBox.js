@@ -1,90 +1,63 @@
 import { Block } from '../block.js'
+import Chart from 'chart.js'
+import { mockData } from './mock/chart-mock'
 
 export default function (params) {
   const block = new Block(params)
-
-  initChart(block.container.children[1])
+  block.container.children[1].innerHTML += "<canvas id='myChart' height='150px'/>"
+  const ctx = block.container.children[1].children[0]
+  const chart = initChart(ctx)
+  let i = 24
+  setInterval(() => {
+    updateChart(chart, mockData, i++)
+  }, 2000)
 
   return block
 }
 
-function initChart (target) {
-  const xValues = Array.from({ length: 24 }, (v, k) => k)
-  const yValues = xValues.map(el => {
-    return direction()
-      ? 40 - round(Math.random() * 10)
-      : 40 + round(Math.random() * 10)
-  })
-  const trace1 = {
-    x: xValues,
-    y: yValues,
-    fill: 'tozeroy',
+function updateChart (chart, data, i) {
+  chart.data.labels.push(data.hours[i])
+  chart.data.labels.shift()
+
+  chart.data.datasets[0].data.push(data.values[i])
+  chart.data.datasets[0].data.shift()
+  chart.update()
+}
+
+function initChart (ctx) {
+  var myChart = new Chart(ctx, {
     type: 'line',
-    line: { shape: 'spline' }
-  }
-  let data = [trace1]
-
-  const layout = {
-    showlegend: false,
-    height: 200,
-    margin: {
-      l: 40,
-      r: 20,
-      b: 40,
-      t: 20,
-      pad: 4
+    data: {
+      labels: mockData.hours.slice(0, 24),
+      datasets: [
+        {
+          label: '# of Votes',
+          data: mockData.values.slice(0, 24),
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255,99,132,1)'
+          ],
+          borderWidth: 1
+        }
+      ]
     },
-    dragmode: 'pan',
-    selectdirection: 'h',
-    autorange: true,
-    xaxis: {
-      title: 'Time, hours',
-      zeroline: false,
-      tickvals: xValues
-    },
-    yaxis: {
-      title: 'Users',
-      showline: false
+    options: {
+      legend: {
+        display: false
+      },
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true
+            }
+          }
+        ]
+      }
     }
-  }
+  })
 
-  const options = {
-    responsive: true
-  }
-
-  /* eslint-disable */
-  Plotly.react(target, data, layout, options)
-  // Plotly.purge(target)
-  /* eslint-enable */
-  // let step = 0
-  // setInterval(() => {
-  //   yValues.push(direction()
-  //     ? 40 - round(Math.random() * 10)
-  //     : 40 + round(Math.random() * 10))
-  //   xValues.push((xValues[xValues.length - 1] + 1) % 24)
-
-  //   Plotly.react(target, [
-  //     {
-  //       ...trace1,
-  //       x: xValues.slice(step, step + 24),
-  //       y: yValues.slice(step, step + 24)
-  //     }
-  //   ], layout, options)
-
-  //   step++
-  // }, 2000)
-}
-
-function round (val) {
-  return Math.round(val)
-}
-
-function direction () {
-  return round(Math.random()) === 0
-}
-
-function newValue () {
-  return direction()
-    ? 40 - round(Math.random() * 10)
-    : 40 + round(Math.random() * 10)
+  return myChart
 }

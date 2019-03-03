@@ -213,3 +213,13 @@ button {
 #map-inner {
   padding: 0;
 }
+
+/* CHARTS */
+#chart #chart-inner {
+  display: flex;
+}
+
+#chart-inner canvas {
+  width: 100%;
+  /* max-height: 150px */
+}

@@ -1,5 +1,7 @@
 import { Block } from '../block.js'
 
 export default function (params) {
-  return new Block(params)
+  const block = new Block(params)
+
+  return block
 }

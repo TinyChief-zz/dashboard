@@ -86,7 +86,7 @@ button {
   transition: background-color 0.2s ease-in;
 }
 
-[class$='-inner'] {
+[id$='-inner'] {
   max-width: 100%;
   padding: 8px;
   flex: 1 1 100%;
@@ -142,12 +142,12 @@ button {
   color: var(--light);
 }
 
-.notes-inner {
+#notes-inner {
   display: flex;
   flex-direction: column;
   /* padding: 8px; */
 }
-.notes-inner ul {
+#notes-inner ul {
   flex-grow: 1;
   overflow: scroll;
   height: 1px;
@@ -167,7 +167,7 @@ button {
 
 /* NEWS */
 
-#news .news-inner {
+#news #news-inner {
   display: flex;
 }
 
@@ -206,4 +206,10 @@ button {
   white-space: nowrap;
   display: inline-block;
   background: '✦'
+}
+
+/* MAP */
+
+#map-inner {
+  padding: 0;
 }
